@@ -152,10 +152,10 @@ const runtimeConfig = useRuntimeConfig()
 
         <div class="row-start-2 lg:row-start-1 lg:col-start-3 lg:px-8 space-y-8">
           <UButton
-            v-bind="appConfig.page.article.cta"
+            v-bind="appConfig.page?.article?.cta ?? {}"
             color="primary"
             size="lg"
-            :ui="{ base: 'w-full justify-center' }"
+            :ui="{ base: 'w-full justify-center', empty: '' }"
             class="hidden lg:inline-flex"
           />
 
@@ -163,7 +163,7 @@ const runtimeConfig = useRuntimeConfig()
 
           <UContentToc
             :links="page.body?.toc?.links"
-            :ui="{ wrapper: 'top-4', container: { base: 'py-0 pb-3 lg:py-0 lg:pb-8' } }"
+            :ui="{ wrapper: 'top-4', container: { base: 'py-0 pb-3 lg:py-0 lg:pb-8', empty: '' } }"
           />
 
           <UDivider class="lg:hidden" />
