@@ -1,11 +1,21 @@
 <script lang="ts" setup>
-const appConfig = useAppConfig()
+import { useAppConfig } from 'nuxt/app'
+
+const appConfig = useAppConfig() as {
+  app: { name: string }
+  footer: {
+    links: Array<{ label: string, children: Array<{ label: string }> }>
+    copyrightNotice: string
+    smallLinks: Array<{ label: string }>
+  }
+  socials: Array<{ name: string }>
+}
 </script>
 
 <template>
   <UFooter
     class="mt-24"
-    :ui="{ top: { wrapper: 'bg-yellow-800/5' } }"
+    :ui="{ top: { wrapper: 'bg-yellow-800/5', container: 'container mx-auto' } }"
   >
     <template #top>
       <div class="grid grid-cols-1 xl:grid-cols-2 gap-12 xl:gap-0">
